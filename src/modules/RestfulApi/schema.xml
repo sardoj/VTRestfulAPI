@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_restfulapi</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_restfulapi` (
+    `restfulapiid` int(11) NOT NULL DEFAULT '0',
+      `token` VARCHAR(32) DEFAULT NULL,
+    `ip` VARCHAR(15) DEFAULT NULL,
+    `calls` INT(11) DEFAULT NULL,
+    `expiration_date` TIMESTAMP NULL DEFAULT NULL,
+      PRIMARY KEY (`restfulapiid`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_restfulapicf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_restfulapicf` (
+  `vtiger_restfulapicf` int(11) NOT NULL,
+  PRIMARY KEY (`vtiger_restfulapicf`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
