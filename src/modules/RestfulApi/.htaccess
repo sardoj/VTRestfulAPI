@@ -1,0 +1,17 @@
+Options -Indexes
+Options +FollowSymlinks
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+RewriteRule ^[auth|Auth]+/([^/]+)$  index.php?module=Auth&key=$1 [L]
+RewriteRule ^[auth|Auth]+/([^/]+)/([^/]+)$  index.php?module=Auth&login=$1&password=$2 [L]
+RewriteRule ^([^/]+)/([0-9]+)/([a-zA-Z0-9]{32})$  index.php?module=$1&id=$2&token=$3 [L]
+RewriteRule ^([^/]+)/criteria/([^/]+)/([a-zA-Z0-9]{32})$  index.php?module=$1&token=$3&criteria=$2 [L]
+RewriteRule ^([^/]+)/picklist/([^/]+)/([a-zA-Z0-9]{32})$  index.php?module=$1&token=$3&picklist=$2 [L]
+RewriteRule ^([^/]+)/action/([^/]+)/(.+)/([a-zA-Z0-9]{32})$  index.php?module=$1&action=$2&token=$4&params=$3 [L]
+RewriteRule ^([^/]+)/(.+)/([a-zA-Z0-9]{32})$  index.php?module=$1&token=$3&params=$2 [L]
+RewriteRule ^([^/]+)/([^/]+)$  index.php?module=$1&token=$2 [L]
