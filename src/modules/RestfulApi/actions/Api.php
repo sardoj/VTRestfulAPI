@@ -202,7 +202,7 @@ class RestfulApi_Api_Action extends RestFulApi_Rest_Model
 				}
 				else
 				{
-					$a_data = explode("[^\\\]/", $val);
+					$a_data = explode("/", $val);
 					
 					for($i=0; $i<count($a_data)-1; $i+=2)
 					{
